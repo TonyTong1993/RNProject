@@ -24,7 +24,6 @@ constructor(props) {
   this.state = {
   	 data:[],
   	refreshing:false,
-  	isDisable:false,//是否被禁用
   };
 }
   render() {
@@ -58,7 +57,6 @@ constructor(props) {
   _renderItem = ({item,index})=>{
   	return (
   		<TouchableOpacity 
-         disabled={this.state.isDisable}
          activeOpacity={0.85}
   		 onPress={this._onPressItem}>
   			<View style={{
