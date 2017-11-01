@@ -12,7 +12,12 @@ import {
 import Header from '../../components/Header'
 class AnimatedView5 extends Component {
    static navigationOptions = ({navigation})=>({
-    header:<Header title='弹性动画'/>
+    header:<Header 
+          title='弹性动画'
+          leftBarButton={{
+              title:'返回',
+              onPress:()=>navigation.goBack()
+            }}/>
   })
   constructor(props) {
     super(props);

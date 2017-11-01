@@ -14,7 +14,12 @@ import Header from '../components/Header'
 import LoadingView from '../components/LoadingView';
 class Detail extends Component {
 	static navigationOptions = ({navigation})=>({
-		header:<Header title='详情'/>
+		header:<Header 
+            title='详情' 
+            leftBarButton={{
+              title:'返回',
+              onPress:()=>navigation.goBack()
+            }}/>
 	})
   constructor(props) {
     super(props);
