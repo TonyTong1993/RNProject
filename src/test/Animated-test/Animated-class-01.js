@@ -9,8 +9,11 @@ import {
   Easing,
   Text
 } from 'react-native';
-
+import Header from '../../components/Header'
 class AnimatedView1 extends Component {
+  static navigationOptions = ({navigation})=>({
+    header:<Header title='显隐动画'/>
+  })
   constructor(props) {
     super(props);
   

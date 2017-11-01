@@ -6,7 +6,7 @@ import AnimatedView1 from './test/Animated-test/Animated-class-01';
 import AnimatedView2 from './test/Animated-test/Animated-class-02';
 import AnimatedView3 from './test/Animated-test/Animated-class-03';
 import AnimatedView4 from './test/Animated-test/Animated-class-04';
-import AnimatedView5 from './test/Animated-test/Animated-class-04';
+import AnimatedView5 from './test/Animated-test/Animated-class-05';
 const TYRCTModule = require('NativeModules').TYRCTModule
 const RootNavigator = StackNavigator({
 	Home:{

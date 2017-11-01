@@ -1,5 +1,5 @@
 'use strict';
-/*旋转动画*/
+/*缩放动画*/
 import React, { Component } from 'react';
 
 import {
@@ -9,46 +9,38 @@ import {
   Easing,
   Text
 } from 'react-native';
-
+import Header from '../../components/Header'
 class AnimatedView3 extends Component {
+   static navigationOptions = ({navigation})=>({
+    header:<Header title='缩放动画'/>
+  })
   constructor(props) {
     super(props);
   
     this.state = {
-    	fadeInOpacity:new Animated.Value(0),
-    	rotation:new Animated.Value(0),
-    	fontSize:new Animated.Value(0)
+    	scale:new Animated.Value(0),
     };
   }
   componentDidMount() {
-  	    var timing = Animated.timing;
-		Animated.parallel(['fadeInOpacity','rotation','fontSize'].map(property => {
-			return timing(this.state[property],{
-				toValue: 1,
-                duration: 1000,
-                easing: Easing.linear
-			})
-		})).start()
+  	    Animated.timing(this.state.scale,{
+          toValue:1,
+          duration:2500,
+          easing:Easing.linear
+        }).start()
 	}
   render() {
     return (
     	<View style = {styles.demo}>
     		 <Animated.View style={{
-			       	opacity:this.state.fadeInOpacity,
 			       	transform: [{
-			       		rotateZ : this.state.rotation.interpolate({
+			       		scale : this.state.scale.interpolate({
 			       			 inputRange: [0,1],
-			                 outputRange: ['0deg', '360deg']
+			             outputRange: [1,2]
 			       		})
-			       	}]
+			       	}],
+              backgroundColor:'#ffb300'
 			       }}>
-		       <Animated.Text style={[styles.text,
-		       	{fontSize:this.state.fontSize.interpolate({
-		                        inputRange: [0,1],
-		                        outputRange: [12, 36]
-		       })}]}>
-		         我骑着七彩祥云出现了
-		       </Animated.Text>
+		        <Text style={styles.text}>看我胖了2倍！！！</Text>
 	       </Animated.View>
     	</View>
       
