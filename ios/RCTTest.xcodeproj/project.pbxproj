@@ -145,6 +145,7 @@
 		EB777A461F7BC7E5000461B3 /* main.jsbundle in Resources */ = {isa = PBXBuildFile; fileRef = EB777A451F7BC7C4000461B3 /* main.jsbundle */; };
 		EB811C711F763934003552E9 /* libMBProgressHUD.a in Frameworks */ = {isa = PBXBuildFile; fileRef = EB811C701F763934003552E9 /* libMBProgressHUD.a */; };
 		EB811C751F764273003552E9 /* MBProgressHUD+MJ.m in Sources */ = {isa = PBXBuildFile; fileRef = EB811C741F764273003552E9 /* MBProgressHUD+MJ.m */; };
+		EB8EFF421FAAD12800482BB0 /* CatchCrash.m in Sources */ = {isa = PBXBuildFile; fileRef = EB8EFF411FAAD12800482BB0 /* CatchCrash.m */; };
 		EB9FF1E21F47DF2200EEBE11 /* TYTheme.m in Sources */ = {isa = PBXBuildFile; fileRef = EB9FF1E11F47DF2200EEBE11 /* TYTheme.m */; };
 		EBB77D691F677BD700A1C59C /* TYProfileViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = EBB77D681F677BD700A1C59C /* TYProfileViewModel.m */; };
 		EBE0F7A41F76877D006F0AD8 /* TYSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBE0F7A31F76877D006F0AD8 /* TYSearchViewController.swift */; };
@@ -353,6 +354,8 @@
 		EB811C701F763934003552E9 /* libMBProgressHUD.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libMBProgressHUD.a; path = "Pods/../build/Debug-iphoneos/MBProgressHUD/libMBProgressHUD.a"; sourceTree = "<group>"; };
 		EB811C731F764273003552E9 /* MBProgressHUD+MJ.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MBProgressHUD+MJ.h"; sourceTree = "<group>"; };
 		EB811C741F764273003552E9 /* MBProgressHUD+MJ.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "MBProgressHUD+MJ.m"; sourceTree = "<group>"; };
+		EB8EFF401FAAD12800482BB0 /* CatchCrash.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CatchCrash.h; sourceTree = "<group>"; };
+		EB8EFF411FAAD12800482BB0 /* CatchCrash.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CatchCrash.m; sourceTree = "<group>"; };
 		EB9FF1E01F47DF2200EEBE11 /* TYTheme.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TYTheme.h; sourceTree = "<group>"; };
 		EB9FF1E11F47DF2200EEBE11 /* TYTheme.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TYTheme.m; sourceTree = "<group>"; };
 		EBB77D671F677BD700A1C59C /* TYProfileViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TYProfileViewModel.h; sourceTree = "<group>"; };
@@ -699,6 +702,8 @@
 				EB5EDB2A1F46C15200B218AF /* Config.swift */,
 				EB5D39261F345D0A0029085F /* TYCalculateFrameTool.h */,
 				EB5D39271F345D0A0029085F /* TYCalculateFrameTool.m */,
+				EB8EFF401FAAD12800482BB0 /* CatchCrash.h */,
+				EB8EFF411FAAD12800482BB0 /* CatchCrash.m */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -1067,6 +1072,7 @@
 				EB032D191F0251F300F32465 /* Resources */,
 				3A1C1FEEB22AEBC912800669 /* [CP] Embed Pods Frameworks */,
 				7E6834BE7404F2833CCF3764 /* [CP] Copy Pods Resources */,
+				EB8EFF441FAAEA4400482BB0 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -1230,6 +1236,19 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
+		EB8EFF441FAAEA4400482BB0 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "export REVEAL_SERVER_FILENAME=\"RevealServer.framework\"\n\n# Update this path to point to the location of RevealServer.framework in your project.\nexport REVEAL_SERVER_PATH=\"${SRCROOT}/${REVEAL_SERVER_FILENAME}\"\n\n# If configuration is not Debug, skip this script.\n[ \"${CONFIGURATION}\" != \"Debug\" ] && exit 0\n\n# If RevealServer.framework exists at the specified path, run code signing script.\nif [ -d \"${REVEAL_SERVER_PATH}\" ]; then\n\"${REVEAL_SERVER_PATH}/Scripts/copy_and_codesign_revealserver.sh\"\nelse\necho \"Cannot find RevealServer.framework, so Reveal Server will not be started for your app.\"\nfi";
+		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -1312,6 +1331,7 @@
 				EB6500EA1F4182FE00C0B89A /* TYAttentionViewController.swift in Sources */,
 				EB714BDA1F4806190024C929 /* ConstraintLayoutSupportDSL.swift in Sources */,
 				EB6712331F4C0FDE00642B72 /* String(Add).swift in Sources */,
+				EB8EFF421FAAD12800482BB0 /* CatchCrash.m in Sources */,
 				EB714BDF1F4806190024C929 /* ConstraintMakerPriortizable.swift in Sources */,
 				EB714BE21F4806190024C929 /* ConstraintOffsetTarget.swift in Sources */,
 				EB714BD31F4806190024C929 /* ConstraintInsets.swift in Sources */,
@@ -1391,6 +1411,10 @@
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(SRCROOT)",
+				);
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -1406,8 +1430,14 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
+				OTHER_LDFLAGS = (
+					"-ObjC",
+					"-weak_framework",
+					RevealServer,
+				);
 				SDKROOT = iphoneos;
 			};
 			name = Debug;

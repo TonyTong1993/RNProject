@@ -85,9 +85,7 @@
         [_mtextField resignFirstResponder];
     }
 }
--(void)dealloc {
-    NSLog(@"%s",__FUNCTION__);
-}
+
 /*1用户名及密码检验、2用户密码加密、3上传用户登录状态、4切换视图*/
 -(void)loginAction {
     //用户名及密码检验
@@ -98,8 +96,7 @@
     
     //用户密码加密
     CocoaSecurityResult *pwd = [CocoaSecurity md5:_mtextField.text];
-    NSLog(@"pwd = %@",pwd.hex);
-    
+
     //模拟数据上传上传状态提示
     
     MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];

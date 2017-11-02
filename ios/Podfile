@@ -33,4 +33,5 @@ source 'https://github.com/CocoaPods/Specs.git'
     pod "FMDB"
     pod 'CocoaSecurity'
     pod 'MBProgressHUD'
+    pod 'CocoaLumberjack'
 end

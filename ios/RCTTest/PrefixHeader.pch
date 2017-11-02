@@ -20,4 +20,24 @@
 #import "TYTheme.h"
 #import "Macro.h"
 #import "NSString+Extension.h"
+#define LOG_LEVEL_DEF ddLogLevel
+#import <CocoaLumberjack/CocoaLumberjack.h>
+
+/*日志收集工具的处理*/
+
+
+#ifdef DEBUG
+static const DDLogLevel ddLogLevel = DDLogLevelVerbose;
+#else
+static const DDLogLevel ddLogLevel = DDLogLevelError;
+#endif
+
+#ifdef DEBUG
+//#define DLog(format, ...) DDLogError((@"[文件名:%s]" "[函数名:%s]" "[行号:%d]" format), __FILE__, __FUNCTION__, __LINE__, ##__VA_ARGS__);
+#define DLog(format, ...) DDLogError((@"[函数名:%s]" "[行号:%d]" format), __FUNCTION__, __LINE__, ##__VA_ARGS__);
+#else
+#define DLog(...);
+#endif
+
+
 #endif /* PrefixHeader_pch */

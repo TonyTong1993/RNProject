@@ -19,7 +19,7 @@ CFAbsoluteTime StartTime;
 - (void)viewDidLoad {
     /*从main加载到这的时间*/
     dispatch_async(dispatch_get_main_queue(), ^{
-        NSLog(@"didload in %f sec",CFAbsoluteTimeGetCurrent() - StartTime);
+        DLog(@"didload in %f sec",CFAbsoluteTimeGetCurrent() - StartTime);
     });
     [super viewDidLoad];
     NSArray *barItemInfos = @[
@@ -36,7 +36,7 @@ CFAbsoluteTime StartTime;
 -(void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
     dispatch_async(dispatch_get_main_queue(), ^{
-        NSLog(@"didAppear in %f sec",CFAbsoluteTimeGetCurrent() - StartTime);
+        DLog(@"didAppear in %f sec",CFAbsoluteTimeGetCurrent() - StartTime);
     });
 }
 -(void)addChildViewController:(NSString *)className icon:(NSString *)icon selectedIcon:(NSString *)selectedIcon title:(NSString *)title {
