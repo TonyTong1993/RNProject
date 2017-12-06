@@ -9,7 +9,9 @@ import com.facebook.react.ReactRootView;
 import com.facebook.react.common.LifecycleState;
 import com.facebook.react.modules.core.DefaultHardwareBackBtnHandler;
 import com.facebook.react.shell.MainReactPackage;
-
+import org.json.JSONObject;
+import org.json.JSONArray;
+import org.json.JSONException;
 public class ReactActivity extends AppCompatActivity implements DefaultHardwareBackBtnHandler {
 
     private ReactRootView mReactRootView;
@@ -30,7 +32,9 @@ public class ReactActivity extends AppCompatActivity implements DefaultHardwareB
 
         // 注意这里的MyReactNativeApp必须对应“index.android.js”中的
         // “AppRegistry.registerComponent()”的第一个参数
-        mReactRootView.startReactApplication(mReactInstanceManager, "test", null);
+        Bundle bundle = new Bundle();
+        bundle.putString("bundle","{'commonParams':'{}','url':'www.baidu.com','term_id':'42'}");
+        mReactRootView.startReactApplication(mReactInstanceManager, "test", bundle);
 
         setContentView(mReactRootView);
     }

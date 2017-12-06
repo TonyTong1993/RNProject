@@ -5,7 +5,6 @@
 	};
 	objectVersion = 46;
 	objects = {
-
 /* Begin PBXBuildFile section */
 		EB01F61B1F36B635008CF290 /* UIColor+RGBA.m in Sources */ = {isa = PBXBuildFile; fileRef = EB01F61A1F36B635008CF290 /* UIColor+RGBA.m */; };
 		EB032D201F0251F300F32465 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = EB032D1F1F0251F300F32465 /* main.m */; };
@@ -153,6 +152,7 @@
 		EBE0F7AA1F76ABCA006F0AD8 /* TYTopicBanner.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBE0F7A81F76ABCA006F0AD8 /* TYTopicBanner.swift */; };
 		EBE0F7AC1F773C83006F0AD8 /* TYSegmentScrollVIew.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBE0F7AB1F773C83006F0AD8 /* TYSegmentScrollVIew.swift */; };
 		EDEBCEE583499B68DDF9A070 /* libPods-RCTTest.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4685E6D3869C8CFF7EF29817 /* libPods-RCTTest.a */; };
+		F4647525FBE244E2AA4D9792 /* libCodePush.a in Frameworks */ = {isa = PBXBuildFile; fileRef = FB235C79B98D4806AFC13E5C /* libCodePush.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -364,6 +364,8 @@
 		EBE0F7A71F76ABCA006F0AD8 /* SearchView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchView.swift; sourceTree = "<group>"; };
 		EBE0F7A81F76ABCA006F0AD8 /* TYTopicBanner.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TYTopicBanner.swift; sourceTree = "<group>"; };
 		EBE0F7AB1F773C83006F0AD8 /* TYSegmentScrollVIew.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TYSegmentScrollVIew.swift; sourceTree = "<group>"; };
+		8E5419BB9C76445FAA31643F /* CodePush.xcodeproj */ = {isa = PBXFileReference; name = "CodePush.xcodeproj"; path = "../node_modules/react-native-code-push/ios/CodePush.xcodeproj"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = wrapper.pb-project; explicitFileType = undefined; includeInIndex = 0; };
+		FB235C79B98D4806AFC13E5C /* libCodePush.a */ = {isa = PBXFileReference; name = "libCodePush.a"; path = "libCodePush.a"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = archive.ar; explicitFileType = undefined; includeInIndex = 0; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -387,6 +389,7 @@
 				EB65010A1F418EB400C0B89A /* AudioToolbox.framework in Frameworks */,
 				EB2425F71F34C5D800E0ACE6 /* libReact.a in Frameworks */,
 				EDEBCEE583499B68DDF9A070 /* libPods-RCTTest.a in Frameworks */,
+				F4647525FBE244E2AA4D9792 /* libCodePush.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -434,6 +437,7 @@
 				EB032D1C1F0251F300F32465 /* Products */,
 				7953CC99AFBE83F484FADF8B /* Pods */,
 				C99CA68C2F5497E7F1256D9E /* Frameworks */,
+				27DD35750FCA4169A1071721 /* Libraries */,
 			);
 			sourceTree = "<group>";
 		};
@@ -1059,6 +1063,15 @@
 			path = "MBProgressHUD-MJ";
 			sourceTree = "<group>";
 		};
+		27DD35750FCA4169A1071721 /* Libraries */ = {
+			isa = PBXGroup;
+			children = (
+				8E5419BB9C76445FAA31643F /* CodePush.xcodeproj */,
+			);
+			name = Libraries;
+			path = "";
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -1090,13 +1103,13 @@
 			isa = PBXProject;
 			attributes = {
 				CLASSPREFIX = TY;
-				LastUpgradeCheck = 0830;
+				LastUpgradeCheck = 830;
 				ORGANIZATIONNAME = "童万华";
 				TargetAttributes = {
 					EB032D1A1F0251F300F32465 = {
 						CreatedOnToolsVersion = 8.3.1;
 						DevelopmentTeam = NVZ53TTCA3;
-						LastSwiftMigration = 0830;
+						LastSwiftMigration = 830;
 						ProvisioningStyle = Automatic;
 						SystemCapabilities = {
 							com.apple.BackgroundModes = {
@@ -1503,6 +1516,7 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/build/Debug-iphoneos/React",
 					"$(PROJECT_DIR)/build/Debug-iphoneos/MBProgressHUD",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = lptiyu.com.zuizuo.company;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -1531,6 +1545,7 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/build/Debug-iphoneos/React",
 					"$(PROJECT_DIR)/build/Debug-iphoneos/MBProgressHUD",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = lptiyu.com.zuizuo.company;
 				PRODUCT_NAME = "$(TARGET_NAME)";
